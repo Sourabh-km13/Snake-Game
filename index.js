@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     let score =0;
     let food = {x:100,y:120};
     let gameStarted = false;
-    let position = [{x:120,y:140},{x:140,y:140},{x:160,y:140}];
+    let snakePosition = [{x:120,y:140},{x:140,y:140},{x:160,y:140}];
     const Arena = document.getElementById('Arena')
 
     function drawDiv(x, y, classname) {
@@ -18,11 +18,16 @@ document.addEventListener('DOMContentLoaded',()=>{
     function drawScoreBoard(){
         const scoreBoard = document.getElementById('score-board')
         scoreBoard.textContent=`Score: ${score}`
+        
     }
     function drawFoodandSnake(){
         Arena.innerHTML=''
         const foodDiv = drawDiv(food.x,food.y,'food')
         Arena.appendChild(foodDiv)
+        snakePosition.forEach(pos=>{
+            const element = drawDiv(pos.x,pos.y,'snake');
+            Arena.appendChild(element)
+        })
     }
     function gameLoop() {
         setInterval(() => {
