@@ -61,8 +61,8 @@ document.addEventListener('DOMContentLoaded', () => {
             return d;
         }
 
+        const scoreBoard = document.getElementById('score-board')
         function drawScoreBoard() {
-            const scoreBoard = document.getElementById('score-board')
             scoreBoard.textContent = `Score: ${score}`
 
         }
@@ -70,8 +70,9 @@ document.addEventListener('DOMContentLoaded', () => {
             Arena.innerHTML = ''
             const foodDiv = drawDiv(food.x, food.y, 'food')
             Arena.appendChild(foodDiv)
-            snakePosition.forEach(pos => {
+            snakePosition.forEach((pos,index) => {
                 const element = drawDiv(pos.x, pos.y, 'snake');
+                 
                 Arena.appendChild(element)
                 
 
